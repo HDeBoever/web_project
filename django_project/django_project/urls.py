@@ -14,8 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
+    # By default, django redirects routes to routes with trailing forward slash
     path('admin/', admin.site.urls),
+
+    # Empty string denotes the default page of the website
+    path('', include('blog.urls')),
 ]
